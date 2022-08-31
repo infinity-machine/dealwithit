@@ -1,3 +1,8 @@
+import { Routes, Route } from 'react-router-dom'
+import Login from './pages/Login'
+import PlayGame from './pages/PlayGame'
+import GameScreen from './pages/GameScreen'
+
 function App() {
   // SHUFFLE NEW DECK OR DECKS
   // WE WILL HAVE TO GET DECK ID FROM THIS FETCH 
@@ -14,6 +19,11 @@ function App() {
   //   .then(data => console.log(data))
   return (
     <div className="App">
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/playgame" element={<PlayGame />} />
+        <Route path="/GameScreen" element={<GameScreen />} />
+      </Routes>
     </div>
   );
 }
