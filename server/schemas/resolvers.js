@@ -4,7 +4,7 @@ const { ApolloError } = require('apollo-server-express');
 
 const resolvers = {
   // Query: {
-  //   async getTodos(_, args, context) {
+  //   async getUsers(_, args, context) {
   //     if (!context.user) throw new ApolloError('not authorized', 402);
 
   //     return await Todo.find();
@@ -12,9 +12,9 @@ const resolvers = {
   // },
 
   Mutation: {
-    async addUser(_, { email, password }, context) {
+    async addUser(_, { email, username, password }, context) {
       try {
-        const user = await User.create({ email, password });
+        const user = await User.create({ email, username, password });
 
         const token = signToken(user);
         return { user, token };

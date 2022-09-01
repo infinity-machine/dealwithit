@@ -4,6 +4,9 @@ const typeDefs = gql`
   type User {
     _id: ID!
     email: String!
+    password: String!
+    username: String!
+    # bank: Int
   }
 
   type Auth {
@@ -16,7 +19,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(email: String!, password: String!): Auth
+    addUser(email: String!, password: String!, username: String!): Auth
     loginUser(email: String!, password: String!): Auth
   }
 `;
