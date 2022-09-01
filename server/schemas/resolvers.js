@@ -5,10 +5,13 @@ const { ApolloError } = require('apollo-server-express');
 const resolvers = {
   Query: {
     async getUsers(_, args) {
-
-
       return await User.find();
-    }
+    },
+    // async getUserByToken(_, args) {
+    //   return await User.find({
+
+    //   })
+    // }
   },
 
   Mutation: {
