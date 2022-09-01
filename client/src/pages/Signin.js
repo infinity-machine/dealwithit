@@ -8,7 +8,6 @@ const Signin = () => {
         <div class="row">
             <div class="col-md-6">
                 <h2>Login</h2>
-
                 <form class="form login-form">
                     <div class="form-group">
                         <label for="email-login">email:</label>

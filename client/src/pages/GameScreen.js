@@ -38,8 +38,7 @@ function GameScreen() {
                         case 'JACK':
                             card = 11
                             break
-
-
+                            default:
                     }
                     card = parseInt(card)
                     console.log(card)
