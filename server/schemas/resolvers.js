@@ -3,13 +3,16 @@ const { signToken } = require('../auth');
 const { ApolloError } = require('apollo-server-express');
 
 const resolvers = {
-  // Query: {
-  //   async getUsers(_, args, context) {
-  //     if (!context.user) throw new ApolloError('not authorized', 402);
+  Query: {
+    async getUsers(_, args) {
+      return await User.find();
+    },
+    // async getUserByToken(_, args) {
+    //   return await User.find({
 
-  //     return await Todo.find();
-  //   }
-  // },
+    //   })
+    // }
+  },
 
   Mutation: {
     async addUser(_, { email, username, password }, context) {

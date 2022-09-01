@@ -9,7 +9,7 @@ while (count--) {
   users.push({
     email: `${faker.word.adjective()}@${faker.word.adjective()}.com`,
     username: faker.name.firstName(),
-    password: faker.word.adjective(),
+    password: 'password',
     bank: 10000
   });
 }

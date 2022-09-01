@@ -1,7 +1,6 @@
 import {useState} from 'react'
 import {LOGIN_USER } from '../utils/mutations';
 
-
 const Signin = () => {
     const [formInput,setFormInput] = useState({
         email:'',
@@ -28,6 +27,7 @@ const Signin = () => {
         <div className="row">
             <div className="col-md-6">
                 <h2>Login</h2>
+
 
                 <form className="form login-form">
                     <div className="form-group">
