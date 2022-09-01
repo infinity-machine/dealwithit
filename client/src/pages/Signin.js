@@ -1,27 +1,50 @@
-//I don't know what or if I have to import
+import {useState} from 'react'
+import {LOGIN_USER } from '../utils/mutations';
+
 
 const Signin = () => {
+    const [formInput,setFormInput] = useState({
+        email:'',
+        password:'',
+    })
+    const handleInput = (event)=>{
+        setFormInput({
+            ...formInput,
+            [event.target.name]: event.target.value
+        })
+
+    }
+    const [loginUser] = useMutation(LOGIN_USER, {
+        variables: formInput
+      });
+    const handleSubmit =(event)=>{
+        event.preventDefault();
+        //left off here -Eli 
+        
+    }
+    
+
     return (
-        <div class="row">
-            <div class="col-md-6">
+        <div className="row">
+            <div className="col-md-6">
                 <h2>Login</h2>
 
-                <form class="form login-form">
-                    <div class="form-group">
-                        <label for="email-login">email:</label>
-                        <input class="form-input" type="text" id="email-login" />
+                <form className="form login-form">
+                    <div className="form-group">
+                        <label htmlFor="email-login">email:</label>
+                        <input name="email" onChange={handleInput} className="form-input" type="text" id="username-signin" />
                     </div>
-                    <div class="form-group">
-                        <label for="password-login">password:</label>
-                        <input class="form-input" type="password" id="password-login" />
+                    <div className="form-group">
+                        <label htmlFor="password-login">password:</label>
+                        <input  name="password" onChange={handleInput}  className="form-input" type="password" id="password-login" />
                     </div>
-                    <div class="form-group">
-                        <button class="btn btn-primary" type="submit">login</button>
+                    <div className="form-group">
+                        <button className="btn btn-primary" type="submit" onClick={handleSubmit}>login</button>
                     </div>
                 </form>
             </div>
             <p>Or click to sign up:</p>
-            <button class="btn btn-primary" type="submit">signup</button>
+            <button className="btn btn-primary" type="submit">signup</button>
         </div>
     );
 }
