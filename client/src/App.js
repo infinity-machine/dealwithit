@@ -1,9 +1,19 @@
 import { Routes, Route } from 'react-router-dom'
-import Signin from './pages/Signin'
 import PlayGame from './pages/PlayGame'
 import GameScreen from './pages/GameScreen'
+import Signin from './pages/Signin'
+
 
 function App() {
+  // const [username, setUsername] = useState('');
+  // const [passwrod, setPassword] = useState('');
+
+
+// const addUsername= ()=>{
+//   const  = Signin.getElementById('username-signin');
+
+
+// }
 
   return (
     <div className="App">
