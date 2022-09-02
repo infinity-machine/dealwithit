@@ -7,11 +7,12 @@ const resolvers = {
     async getUsers(_, args) {
       return await User.find();
     },
-    // async getUserByToken(_, args) {
-    //   return await User.find({
+    // async getUsers(_, args, context) {
+    //   if (!context.user) throw new ApolloError('not authorized', 402);
 
-    //   })
+    //   return await User.find();
     // }
+
   },
 
   Mutation: {
