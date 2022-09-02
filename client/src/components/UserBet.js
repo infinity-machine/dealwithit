@@ -1,32 +1,43 @@
 import { useEffect, useState } from "react"
 import { useMutation, gql } from '@apollo/client'
+import { storeToken } from '../utils/auth'
 
 const ADD_BET = gql`
-    mutation addBet($user_bet: INT!) {
+    mutation addBet($user_bet: Int!) {
         addBet(user_bet: $user_bet){
-            bank,
-            user_bet
+            user {
+            _id
+            email
+            username
+            bank
+            }
+            token
         }
     }
     `
 
-function UserBank() {
+function UserBank(props) {
     const [user_bet, setUserBet] = useState('');
     const [addBet, { loading, error, data }] = useMutation(ADD_BET, {
-        variables: { user_bet }
+        variables: { user_bet: parseInt(user_bet) }
     })
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
-        addBet()
+        const response = await addBet()
+
+        storeToken(response.data.addBet.token)
+        props.setUser(response.data.addBet.user)
         setUserBet('')
     }
 
     return (
         <form>
             <h1>Place Bet</h1>
-            <p>Bank: show user amount</p>
+            {props.user && <p>Bank: {props.user.bank}</p>}
+
+
             <div>
                 <input value={user_bet} onChange={e => setUserBet(e.target.value)} name="bet" className="bet-input" type="text"></input>
                 <button onClick={handleSubmit}>Place Bet!</button>

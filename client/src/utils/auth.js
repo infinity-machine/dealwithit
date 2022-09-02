@@ -4,6 +4,10 @@ export function isAuthenticated() {
     const token = localStorage.getItem('token')
     if (!token) return false
     const decoded = decode(token)
-    if (decode.exp > Date.now() / 1000) return decoded.data
+    if (decoded.exp > Date.now() / 1000) return decoded.data
     return false
+}
+
+export function storeToken(token) {
+    localStorage.setItem('token', token)
 }
