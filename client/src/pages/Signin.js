@@ -8,6 +8,7 @@ function AuthForm(props) {
     username: '',
     email: '',
     password: '',
+    bank: 10000,
     type: 'login'
   });
   const [addUser] = useMutation(ADD_USER, {
@@ -34,7 +35,7 @@ function AuthForm(props) {
     localStorage.setItem('token', token);
     props.setUser(user);
 
-    navigate('/');
+    navigate('/gamescreen');
   };
 
   const handleInputChange = (e) => {

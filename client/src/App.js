@@ -15,6 +15,7 @@ function App() {
 
   useEffect(() => {
     const user_data = isAuthenticated()
+    console.log(user_data)
     if (user_data) setUser(user_data)
   }, [])
 
@@ -30,8 +31,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Signin setUser={setUser} />} />
         <Route path="/playgame" element={<PlayGame />} />
-        <Route path="/gamescreen" element={<GameScreen />} />
-        <Route path="/userbank" element={<UserBet />} />
+        <Route path="/gamescreen" element={<GameScreen user={user} />} />
+        <Route path="/userbank" element={<UserBet setUser={setUser} user={user} />} />
       </Routes>
     </div>
   );

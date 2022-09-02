@@ -1,6 +1,7 @@
 const { User } = require('../models');
 const { signToken } = require('../auth');
 const { ApolloError } = require('apollo-server-express');
+const { sign } = require('jsonwebtoken');
 
 const resolvers = {
   Query: {
@@ -26,6 +27,16 @@ const resolvers = {
       } catch (err) {
         throw new ApolloError(err);
       }
+    },
+
+    async addBet(_, args, context) {
+      if (!context.user) throw new ApolloError('You must be logged in to add a bet')
+      const user = await User.findById(context.user._id)
+      user.bank = user.bank - args.user_bet
+      console.log(args.user_bet, user)
+      user.save()
+      const token = signToken(user)
+      return { user, token }
     },
 
     async loginUser(_, { email, password }, context) {
