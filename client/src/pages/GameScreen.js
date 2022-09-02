@@ -25,7 +25,6 @@ function GameScreen(props) {
                 setPlayerCard(data.cards[0])
                 setCompCard(data.cards[1])
                 const convertCard = (card) => {
-
                     switch (card) {
                         case 'ACE':
                             card = 14
@@ -58,16 +57,16 @@ function GameScreen(props) {
     }
 
 
-    useEffect(grabDeck, [])
+    // useEffect(grabDeck, [])
 
     return (
         <div>
-            < UserBet user={props.user} setUser={props.setUser}/>
+            < UserBet winner={winner}user={props.user} setUser={props.setUser}/>
             <h1>GameScreen</h1>
             {playercard && (
                 <div className="cards">
-                    <img src={playercard.image} className="cardplayer" alt='Card' ></img>
-                    <img src={compcard.image} className="cardplayer" alt='Card' ></img>
+                    <img src={playercard.image} className="cardplayer" alt='Card'></img>
+                    <img src={compcard.image} className="cardplayer" alt='Card'></img>
                 </div>
             )}
             {winner && (winner === 'player' ? <h1>Player Wins!</h1> : <h1>Computer Wins!</h1>)}

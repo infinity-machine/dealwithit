@@ -3,8 +3,8 @@ import { useMutation, gql } from '@apollo/client'
 import { storeToken } from '../utils/auth'
 
 const ADD_BET = gql`
-    mutation addBet($user_bet: Int!) {
-        addBet(user_bet: $user_bet){
+    mutation addBet($user_bet: Int!, $winner: String!) {
+        addBet(user_bet: $user_bet, winner: $winner){
             user {
             _id
             email
@@ -19,7 +19,7 @@ const ADD_BET = gql`
 function UserBet(props) {
     const [user_bet, setUserBet] = useState('');
     const [addBet, { loading, error, data }] = useMutation(ADD_BET, {
-        variables: { user_bet: parseInt(user_bet) }
+        variables: { winner: props.winner, user_bet: parseInt(user_bet) }
     })
 
     const handleSubmit = async (e) => {
