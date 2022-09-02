@@ -16,7 +16,7 @@ const ADD_BET = gql`
     }
     `
 
-function UserBank(props) {
+function UserBet(props) {
     const [user_bet, setUserBet] = useState('');
     const [addBet, { loading, error, data }] = useMutation(ADD_BET, {
         variables: { user_bet: parseInt(user_bet) }
@@ -47,4 +47,4 @@ function UserBank(props) {
     )
 }
 
-export default UserBank
+export default UserBet

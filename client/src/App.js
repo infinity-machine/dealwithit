@@ -1,9 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import PlayGame from './pages/PlayGame'
 import GameScreen from './pages/GameScreen'
 import Signin from './pages/Signin'
-import UserBet from './components/UserBet'
 import { isAuthenticated } from './utils/auth'
 import Header from './components/Header'
 
@@ -30,9 +28,7 @@ function App() {
       <Header user={user} />
       <Routes>
         <Route path="/" element={<Signin setUser={setUser} />} />
-        <Route path="/playgame" element={<PlayGame />} />
-        <Route path="/gamescreen" element={<GameScreen user={user} />} />
-        <Route path="/userbank" element={<UserBet setUser={setUser} user={user} />} />
+        <Route path="/gamescreen" element={<GameScreen user={user} setUser={setUser} />} />
       </Routes>
     </div>
   );

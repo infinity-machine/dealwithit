@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
+import UserBet from '../components/UserBet'
 
-function GameScreen() {
+function GameScreen(props) {
     const [playercard, setPlayerCard] = useState(null)
     const [compcard, setCompCard] = useState(null)
     const [winner, setWinnerCard] = useState('')
@@ -61,6 +62,7 @@ function GameScreen() {
 
     return (
         <div>
+            < UserBet user={props.user} setUser={props.setUser}/>
             <h1>GameScreen</h1>
             {playercard && (
                 <div className="cards">
