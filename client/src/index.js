@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, ApolloLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
-
 import { BrowserRouter as Router } from 'react-router-dom';
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {

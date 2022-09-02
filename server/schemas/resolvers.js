@@ -16,9 +16,9 @@ const resolvers = {
   },
 
   Mutation: {
-    async addUser(_, { email, username, password }, context) {
+    async addUser(_, { email, username, password, bank }, context) {
       try {
-        const user = await User.create({ email, username, password });
+        const user = await User.create({ email, username, password, bank });
 
         const token = signToken(user);
         return { user, token };
