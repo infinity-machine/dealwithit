@@ -32,12 +32,18 @@ const resolvers = {
     async addBet(_, args, context) {
       if (!context.user) throw new ApolloError('You must be logged in to add a bet')
       const user = await User.findById(context.user._id)
-      user.bank = user.bank - args.user_bet
+      if (args.winner === 'player') 
+        user.bank = user.bank + args.user_bet * 2
+      else user.bank = user.bank - args.user_bet
       console.log(args.user_bet, user)
       user.save()
       const token = signToken(user)
       return { user, token }
     },
+    // async payOut(_, args, context) {
+    //   if (!context.user) throw new ApolloError('NO')
+
+    // }
 
     async loginUser(_, { email, password }, context) {
       const user = await User.findOne({ email });

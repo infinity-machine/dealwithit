@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
+import UserBet from '../components/UserBet'
 
-function GameScreen() {
+function GameScreen(props) {
     const [playercard, setPlayerCard] = useState(null)
     const [compcard, setCompCard] = useState(null)
     const [winner, setWinnerCard] = useState('')
@@ -24,7 +25,6 @@ function GameScreen() {
                 setPlayerCard(data.cards[0])
                 setCompCard(data.cards[1])
                 const convertCard = (card) => {
-
                     switch (card) {
                         case 'ACE':
                             card = 14
@@ -57,15 +57,16 @@ function GameScreen() {
     }
 
 
-    useEffect(grabDeck, [])
+    // useEffect(grabDeck, [])
 
     return (
         <div>
+            < UserBet winner={winner}user={props.user} setUser={props.setUser}/>
             <h1>GameScreen</h1>
             {playercard && (
                 <div className="cards">
-                    <img src={playercard.image} className="cardplayer" alt='Card' ></img>
-                    <img src={compcard.image} className="cardplayer" alt='Card' ></img>
+                    <img src={playercard.image} className="cardplayer" alt='Card'></img>
+                    <img src={compcard.image} className="cardplayer" alt='Card'></img>
                 </div>
             )}
             {winner && (winner === 'player' ? <h1>Player Wins!</h1> : <h1>Computer Wins!</h1>)}
