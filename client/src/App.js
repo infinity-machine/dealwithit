@@ -4,6 +4,7 @@ import GameScreen from './pages/GameScreen'
 import Signin from './pages/Signin'
 import { isAuthenticated } from './utils/auth'
 import Header from './components/Header'
+import PlayGame from './pages/PlayGame';
 
 
 function App() {
@@ -29,6 +30,7 @@ console.log(localStorage)
       <Header user={user} />
       <Routes>
         <Route path="/" element={<Signin setUser={setUser} />} />
+        <Route path='/playgame' element={< PlayGame /> }></Route>
         <Route path="/gamescreen" element={<GameScreen user={user} setUser={setUser} />} />
       </Routes>
     </div>

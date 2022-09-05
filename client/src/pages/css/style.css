@@ -1,0 +1,50 @@
+HTML, body {
+    margin: 0px;
+    padding: 0px;
+      border: 0px;
+      background-color: black;
+    }
+
+.overoverall {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overall {
+  width: 720px;
+  margin: 0 10% 0 10%;
+}
+
+.wordsblocktop{
+    margin: 20px 50px 20px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.usertoptext {
+    font-family: Neuliner, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 80px;
+    line-height: 60px;
+    color: #ff0000;
+}
+
+.usercurrentbet {
+  font-family: Neuliner, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 60px;
+  color: #E48400;
+}
+
+.dealbutton {
+  margin: 191px 50px 199px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sprinningcardswrap {
+  display: flex;
+  align-items: center;
+}
