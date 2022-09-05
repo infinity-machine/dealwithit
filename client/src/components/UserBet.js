@@ -1,37 +1,19 @@
-import { useEffect, useState } from "react"
-import { useMutation, gql } from '@apollo/client'
-import { storeToken } from '../utils/auth'
-
-const ADD_BET = gql`
-    mutation addBet($user_bet: Int!, $winner: String!) {
-        addBet(user_bet: $user_bet, winner: $winner){
-            user {
-            _id
-            email
-            username
-            bank
-            }
-            token
-        }
-    }
-    `
 
 function UserBet(props) {
-    const [user_bet, setUserBet] = useState('');
-    const [addBet, { loading, error, data }] = useMutation(ADD_BET, {
-        variables: { winner: props.winner, user_bet: parseInt(user_bet) }
-    })
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
 
-        const response = await addBet()
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault()
 
-        storeToken(response.data.addBet.token)
-        props.setUser(response.data.addBet.user)
-        setUserBet('')
-    }
+    //     const response = await addBet()
 
+    //     storeToken(response.data.addBet.token)
+    //     props.setUser(response.data.addBet.user)
+    //     setUserBet('')
+    // }
+    //<button onClick={handleSubmit}>Place Bet!</button>
+
+    const currentBet = isNaN(props.betAmount) ? 'Select a bet amount!' : props.betAmount;
     return (
         <form>
             <h1>Place Bet</h1>
@@ -39,9 +21,13 @@ function UserBet(props) {
 
 
             <div>
-                <input value={user_bet} onChange={e => setUserBet(e.target.value)} name="bet" className="bet-input" type="text"></input>
-                <button onClick={handleSubmit}>Place Bet!</button>
-                <p>Current Bet: how much they bet</p>
+                <input value={props.betAmount} type="number" onChange={e => {
+                    let intVal = parseInt(e.target.value);
+                    //if (isNaN(intVal)) intVal = 0
+                    props.setBetCb(intVal)
+                }
+                } name="bet" className="bet-input"></input>
+                <p>Current Bet: {currentBet}</p>
             </div>
         </form>
     )
