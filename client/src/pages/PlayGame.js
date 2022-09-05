@@ -1,5 +1,5 @@
 import React from "react";
-import backgroundImage from "./img/bgforphone2.png";
+import backgroundImage from "./img/bgforphone2b.png";
 import dealbuttonImage from "./img/dealbutton01.png";
 import cardbackImage from "./img/spinningcardbas1.png";
 import transImage from "./img/transparent.png";
@@ -28,7 +28,7 @@ function PlayGame() {
                 </div>
 
                 <div className="dealbutton" >
-                    <img src={dealbutton} width="65%" alt="Button for dealing playing card for the game"/>
+                    <img src={dealbutton} width="70%" alt="Button for dealing playing card for the game"/>
                 </div>
 
                 <div className="sprinningcardswrap">
