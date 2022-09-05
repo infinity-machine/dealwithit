@@ -1,9 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import PlayGame from './pages/PlayGame'
 import GameScreen from './pages/GameScreen'
 import Signin from './pages/Signin'
-import UserBet from './components/UserBet'
 import { isAuthenticated } from './utils/auth'
 import Header from './components/Header'
 
@@ -13,12 +11,13 @@ function App() {
   // const [username, setUsername] = useState('');
   // const [passwrod, setPassword] = useState('');
 
-  useEffect(() => {
-    const user_data = isAuthenticated()
-    console.log(user_data)
-    if (user_data) setUser(user_data)
-  }, [])
+  // useEffect(() => {
+  //   const user_data = isAuthenticated()
+  //   console.log(user_data)
+  //   if (user_data) setUser(user_data)
+  // }, [])
 
+console.log(localStorage)
   // const addUsername= ()=>{
   //   const  = Signin.getElementById('username-signin');
 
@@ -30,9 +29,7 @@ function App() {
       <Header user={user} />
       <Routes>
         <Route path="/" element={<Signin setUser={setUser} />} />
-        <Route path="/playgame" element={<PlayGame />} />
-        <Route path="/gamescreen" element={<GameScreen user={user} />} />
-        <Route path="/userbank" element={<UserBet setUser={setUser} user={user} />} />
+        <Route path="/gamescreen" element={<GameScreen user={user} setUser={setUser} />} />
       </Routes>
     </div>
   );
