@@ -13,32 +13,32 @@ HTML, body {
 }
 
 .overall {
-  width: 720px;
-  margin: 0 10% 0 10%;
+  width: 420px;
 }
 
 .wordsblocktop{
-    margin: 20px 50px 20px 50px;
+    margin: 5px 10px 5px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .usertoptext {
-    font-family: Neuliner, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 80px;
-    line-height: 60px;
+    font-family: Neuliner, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+    line-height: 30px;
     color: #ff0000;
 }
 
 .usercurrentbet {
   font-family: Neuliner, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 60px;
+  font-size: 30px;
   color: #E48400;
+
 }
 
 .dealbutton {
-  margin: 191px 50px 199px 50px;
+  margin: 100px 10px 104px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
