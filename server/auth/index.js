@@ -26,6 +26,7 @@ module.exports = {
     } catch (err) {
       throw new ApolloError('invalid');
     }
+    return req
   },
 
   signToken(user_data) {
