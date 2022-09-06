@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react"
 import UserBet from '../components/UserBet'
 import { useMutation, gql } from '@apollo/client'
-import backgroundImage from "./img/bgforphone2b.png";
+import backgroundImage from "./img/bgforphone2d.png";
 import dealbuttonImage from "./img/dealbutton01.png";
 import cardbackImage from "./img/spinningcardbas1.png";
 import kingofheartsImage from "./img/KH.png";
@@ -133,7 +133,7 @@ function PlayGame(props) {
                                     //if (isNaN(intVal)) intVal = 0
                                     setBetCb(intVal)
                                 }
-                                } name="bet" className="bet-input"></input></span><br />
+                                } name="bet" className="form-box-betfront input, textarea"></input></span><br />
                             </>
                         )}
 
@@ -149,8 +149,8 @@ function PlayGame(props) {
                         }}>
                             {playercard && (
                                 <>
-                                    <img src={playercard.image} width="38%" alt="back of playing card" />
-                                    <img src={compcard.image} width="38%" alt="front of playing card" />
+                                    <img src={playercard.image} width="38.5%" alt="back of playing card" />
+                                    <img src={compcard.image} width="38.5%" alt="front of playing card" />
                                 </>
                             )}
                         </div>

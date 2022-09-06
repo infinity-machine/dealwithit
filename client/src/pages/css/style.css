@@ -18,7 +18,7 @@ HTML, body {
 }
 
 .wordsblocktop{
-    margin: 5px 10px 5px 10px;
+    margin: 2px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,14 +26,14 @@ HTML, body {
 
 .usertoptext {
     font-family: Neuliner bold, 'Arial Narrow Bold', sans-serif;
-    font-size: 40px;
-    line-height: 30px;
+    font-size: 60px;
+    line-height: 40px;
     color: #ff0000;
 }
 
 .usercurrentbet {
   font-family: Neuliner bold, 'Arial Narrow Bold', sans-serif;
-  font-size: 30px;
+  font-size: 35px;
   color: #E48400;
 
 }
@@ -60,8 +60,25 @@ HTML, body {
   border-radius: 5px;
   font-size: 20px;
   background: #FFF7C4;
+  
  
 }
+
+
+.form-box-betfront {
+  /* display: inline;
+  align-items: center; */
+  font-family: Neuliner bold, 'Arial Narrow Bold', sans-serif;
+  font-size: 20px;
+  min-width: 100px;
+  border: solid #E48400 .5vw;
+  /* border: 1px solid red; */
+  margin-left: 2vw;
+  margin: 0 auto;
+
+}
+
+
 
 /* input[type="radio"] {
   height: 1.2rem;
@@ -77,7 +94,7 @@ HTML, body {
   border: 0.2rem solid #fff;
   background-color: var(--bg-color);
   border-radius: 50%;
-} */ */
+} */
 
 .box-shadow {
   box-shadow: 0 0 0 1px var(--color);
@@ -128,7 +145,7 @@ HTML, body {
 
 
 .dealbutton {
-  margin: 100px 10px 104px 10px;
+  margin: 85px 10px 111px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
