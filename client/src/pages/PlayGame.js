@@ -115,7 +115,7 @@ function PlayGame(props) {
     const currentBet = isNaN(props.betAmount) ? 'Make a bet' : props.betAmount;
     return (
         <div>
-            < UserBet winner={winner} user={props.user} setUser={props.setUser} betAmount={betAmount} setBetCb={setBetCb} />
+
             <div className="overoverall">
                 <div className="overall" style={{
                     backgroundImage: `url(${background})`,
@@ -131,7 +131,7 @@ function PlayGame(props) {
                                 <span className="usercurrentbet">CURRENT BET: <input value={props.betAmount} type="number" onChange={e => {
                                     let intVal = parseInt(e.target.value);
                                     //if (isNaN(intVal)) intVal = 0
-                                    props.setBetCb(intVal)
+                                    setBetCb(intVal)
                                 }
                                 } name="bet" className="bet-input"></input></span><br />
                             </>
