@@ -36,6 +36,7 @@ function PlayGame(props) {
     const [compcard, setCompCard] = useState(null);
     const [winner, setWinnerCard] = useState('');
     const [betAmount, setBetAmount] = useState(0);
+    const [user_bet, setUserBet] = useState('');
 
     const [addBet, { loading, error, data }] = useMutation(ADD_BET);
 
@@ -72,13 +73,22 @@ function PlayGame(props) {
                 let compcard = convertCard(data.cards[1].value)
 
                 // Call server to update based on bet amt and win/loss
-                const userWon = playercard > compcard;
+
                 e.preventDefault()
 
-                addBet({ variables: { user_bet: betAmount, winner: userWon ? 'player' : 'comp' } }).then((response) => {
-                    props.storeToken(response.data.addBet.token)
-                    props.setUser(response.data.addBet.user);
-                })
+                const response = addBet()
+
+                props.storeToken(response.data.addBet.token)
+                props.setUser(response.data.addBet.user)
+                setUserBet('')
+
+                // const userWon = playercard > compcard;
+                // e.preventDefault()
+
+                // addBet({ variables: { user_bet: betAmount, winner: userWon ? 'player' : 'comp' } }).then((response) => {
+                //     props.storeToken(response.data.addBet.token)
+                //     props.setUser(response.data.addBet.user);
+                // })
 
                 if (playercard > compcard) {
                     setWinnerCard('player')
@@ -108,14 +118,9 @@ function PlayGame(props) {
 
                 }}>
                     <div className="wordsblocktop">
-                        <span className="usertoptext">Welcome: {props.user.username}</span><br />
-                        <span className="usertoptext">Bank: {props.user.bank}</span><br />
-                        <span className="usercurrentbet">CURRENT BET: <input value={props.betAmount} type="number" onChange={e => {
-                            let intVal = parseInt(e.target.value);
-                            //if (isNaN(intVal)) intVal = 0
-                            props.setBetCb(intVal)
-                        }
-                        } name="bet" className="bet-input"></input></span><br />
+                        <span className="usertoptext">Welcome: </span><br />
+                        <span className="usertoptext">Bank: </span><br />
+                        <span className="usercurrentbet">CURRENT BET: {currentBet}</span><br />
 
                     </div>
 
