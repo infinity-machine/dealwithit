@@ -1,6 +1,8 @@
-
 function UserBet(props) {
-
+    // const [user_bet, setUserBet] = useState('');
+    // const [addBet, { loading, error, data }] = useMutation(ADD_BET, {
+    //     variables: { winner: props.winner, user_bet: parseInt(user_bet) }
+    // })
 
     // const handleSubmit = async (e) => {
     //     e.preventDefault()
