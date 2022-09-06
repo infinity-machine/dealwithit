@@ -7,6 +7,8 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, ApolloLink
 import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
 import { BrowserRouter as Router } from 'react-router-dom';
+import './fonts/Goldman/Goldman-Bold.ttf';
+
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
