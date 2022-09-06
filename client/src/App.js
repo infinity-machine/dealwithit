@@ -29,7 +29,7 @@ function App() {
       <Header user={user} />
       <Routes>
         <Route path="/" element={<Signin setUser={setUser} />} />
-        <Route path="/playgame" element={<PlayGame />} />
+        <Route path="/playgame" element={<PlayGame user={user} setUser={setUser} />} />
         <Route path="/gamescreen" element={<GameScreen user={user} setUser={setUser} />} />
       </Routes>
     </div>

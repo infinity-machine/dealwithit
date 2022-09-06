@@ -35,7 +35,7 @@ function AuthForm(props) {
     localStorage.setItem('token', token);
     props.setUser(user);
 
-    navigate('/gamescreen');
+    navigate('/playgame');
   };
 
   const handleInputChange = (e) => {
