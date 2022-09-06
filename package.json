@@ -19,13 +19,23 @@
     "dev": "concurrently \"npm run dev:server\"  \"npm run dev:client\"",
     "seed:todos": "cd ./server/seeds && node todo.js",
     "install:client": "cd ./client && npm i",
-    "install:server": "cd ./server && npm i"
+    "install:server": "cd ./server && npm i",
+    "install": "cd ./server && npm i && cd ../client && npm i",
+    "build": "cd ./client && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "concurrently": "^7.3.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infinity-machine/p3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/infinity-machine/p3/issues"
+  },
+  "homepage": "https://github.com/infinity-machine/p3#readme",
+  "description": ""
 }

@@ -115,7 +115,6 @@ function PlayGame(props) {
     const currentBet = isNaN(props.betAmount) ? 'Make a bet' : props.betAmount;
     return (
         <div>
-
             <div className="overoverall">
                 <div className="overall" style={{
                     backgroundImage: `url(${background})`,
