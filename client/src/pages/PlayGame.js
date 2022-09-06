@@ -8,9 +8,11 @@ import cardbackImage from "./img/spinningcardbas1.png";
 import kingofheartsImage from "./img/KH.png";
 import transImage from "./img/transparent.png";
 import { storeToken } from "../utils/auth"
+import '../fonts/Neuliner Bold.otf';
 import './css/style.css';
 // import { Header } from '../components/Header.js';
 // const headerdata = Header;
+
 
 const ADD_BET = gql`
     mutation addBet($user_bet: Int!, $winner: String!) {
@@ -30,8 +32,6 @@ const cardbacks = cardbackImage;
 const background = backgroundImage;
 const dealbutton = dealbuttonImage;
 const transpng = transImage;
-
-
 
 
 function PlayGame(props) {
@@ -115,7 +115,6 @@ function PlayGame(props) {
     const currentBet = isNaN(props.betAmount) ? 'Make a bet' : props.betAmount;
     return (
         <div>
-            {/* < UserBet winner={winner} user={props.user} setUser={props.setUser} betAmount={betAmount} setBetCb={setBetCb} /> */}
             <div className="overoverall">
                 <div className="overall" style={{
                     backgroundImage: `url(${background})`,
@@ -131,7 +130,7 @@ function PlayGame(props) {
                                 <span className="usercurrentbet">CURRENT BET: <input value={props.betAmount} type="number" onChange={e => {
                                     let intVal = parseInt(e.target.value);
                                     //if (isNaN(intVal)) intVal = 0
-                                    props.setBetCb(intVal)
+                                    setBetCb(intVal)
                                 }
                                 } name="bet" className="bet-input"></input></span><br />
                             </>
