@@ -1,6 +1,16 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, Navigate, useNavigate } from 'react-router-dom'
+
+
 
 function Header(props) {
+
+    const navigate = useNavigate()
+
+    const handleSubmit = () => {
+        localStorage.removeItem('token')
+        navigate('/')
+    }
+
     return (
         <header>
             <h3>{props.logo}</h3>
@@ -8,6 +18,7 @@ function Header(props) {
                 {props.user ? (
                     <>
                         <span>Welcome, {props.user.email}</span>
+                        {props.user ? <button onClick={handleSubmit}>Logout</button> : <></>}
                     </>
                 ) : (
                     <>
