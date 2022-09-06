@@ -34,17 +34,20 @@ const dealbutton = dealbuttonImage;
 const transpng = transImage;
 
 
+
 function PlayGame(props) {
     const [playercard, setPlayerCard] = useState(null);
     const [compcard, setCompCard] = useState(null);
     const [winner, setWinnerCard] = useState('');
     const [betAmount, setBetAmount] = useState(0);
     const [user_bet, setUserBet] = useState('');
+    // const chaching = new Audio('shuffle01.mp3')
 
     const [addBet, { loading, error, data }] = useMutation(ADD_BET);
 
 
     const grabDeck = (e) => {
+        
         fetch(`https://www.deckofcardsapi.com/api/deck/new/draw/?count=2`)
             .then((res) => res.json())
             .then(data => {
@@ -69,6 +72,7 @@ function PlayGame(props) {
                     }
                     card = parseInt(card)
                     console.log(card)
+                    // chaching.play()
                     return card
                 }
 
