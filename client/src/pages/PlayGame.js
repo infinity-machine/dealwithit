@@ -8,9 +8,11 @@ import cardbackImage from "./img/spinningcardbas1.png";
 import kingofheartsImage from "./img/KH.png";
 import transImage from "./img/transparent.png";
 import { storeToken } from "../utils/auth"
+import '../fonts/Neuliner Bold.otf';
 import './css/style.css';
 // import { Header } from '../components/Header.js';
 // const headerdata = Header;
+
 
 const ADD_BET = gql`
     mutation addBet($user_bet: Int!, $winner: String!) {
@@ -30,8 +32,6 @@ const cardbacks = cardbackImage;
 const background = backgroundImage;
 const dealbutton = dealbuttonImage;
 const transpng = transImage;
-
-
 
 
 function PlayGame(props) {

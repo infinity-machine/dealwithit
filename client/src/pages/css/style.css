@@ -25,21 +25,21 @@ HTML, body {
 }
 
 .usertoptext {
-    font-family: Neuliner, 'Arial Narrow Bold', sans-serif;
+    font-family: Neuliner bold, 'Arial Narrow Bold', sans-serif;
     font-size: 40px;
     line-height: 30px;
     color: #ff0000;
 }
 
 .usercurrentbet {
-  font-family: Neuliner, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Neuliner bold, 'Arial Narrow Bold', sans-serif;
   font-size: 30px;
   color: #E48400;
 
 }
 
 .form-box {
-  font-family: Neuliner, 'Arial Narrow Bold', sans-serif;
+  font-family: Neuliner bold, 'Arial Narrow Bold', sans-serif;
   font-size: 30px;
   min-width: 390px;
   border: solid #E48400 1vw;
@@ -140,7 +140,7 @@ HTML, body {
 }
 
 .loginlabel {
-  font-family: Neuliner, 'Arial Narrow Bold', sans-serif;
+  font-family: Neuliner bold, 'Arial Narrow Bold', sans-serif;
   font-size: 30px;
   color: #E48400;
   
