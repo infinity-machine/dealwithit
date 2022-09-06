@@ -24,8 +24,16 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "concurrently": "^7.3.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infinity-machine/p3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/infinity-machine/p3/issues"
+  },
+  "homepage": "https://github.com/infinity-machine/p3#readme",
+  "description": ""
 }

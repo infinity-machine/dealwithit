@@ -12,16 +12,16 @@ function App() {
   // const [username, setUsername] = useState('');
   // const [passwrod, setPassword] = useState('');
 
-  useEffect(() => {
-    const user_data = isAuthenticated()
-    console.log(user_data)
-    if (user_data) setUser(user_data)
-  }, [])
+  // useEffect(() => {
+  //   const user_data = isAuthenticated()
+  //   console.log(user_data)
+  //   if (user_data) setUser(user_data)
+  // }, [])
 
   // const addUsername= ()=>{
   //   const  = Signin.getElementById('username-signin');
 
-
+console.log(localStorage)
   // }
 
   return (
