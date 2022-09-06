@@ -35,6 +35,7 @@ function AuthForm(props) {
     e.preventDefault();
 
     let user, token;
+    console.log(user)
     let mutation = formInput.type === 'register' ? addUser : loginUser;
     let type = formInput.type === 'register' ? 'addUser' : 'loginUser';
 

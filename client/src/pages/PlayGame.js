@@ -7,6 +7,7 @@ import dealbuttonImage from "./img/dealbutton01.png";
 import cardbackImage from "./img/spinningcardbas1.png";
 import kingofheartsImage from "./img/KH.png";
 import transImage from "./img/transparent.png";
+import { storeToken } from "../utils/auth"
 import './css/style.css';
 // import { Header } from '../components/Header.js';
 // const headerdata = Header;
@@ -78,19 +79,19 @@ function PlayGame(props) {
 
                 // e.preventDefault()
 
-                const response = addBet()
+                // const response = addBet()
 
-                props.storeToken(response.data.addBet.token)
-                props.setUser(response.data.addBet.user)
-                setUserBet('')
+                // props.storeToken(response.data.addBet.token)
+                // props.setUser(response.data.addBet.user)
+                // setUserBet('')
 
-                // const userWon = playercard > compcard;
-                // e.preventDefault()
+                const userWon = playercard > compcard;
+                if (e) e.preventDefault()
 
-                // addBet({ variables: { user_bet: betAmount, winner: userWon ? 'player' : 'comp' } }).then((response) => {
-                //     props.storeToken(response.data.addBet.token)
-                //     props.setUser(response.data.addBet.user);
-                // })
+                addBet({ variables: { user_bet: betAmount, winner: userWon ? 'player' : 'comp' } }).then((response) => {
+                    storeToken(response.data.addBet.token)
+                    props.setUser(response.data.addBet.user);
+                })
 
                 if (playercard > compcard) {
                     setWinnerCard('player')
@@ -104,14 +105,17 @@ function PlayGame(props) {
         setBetAmount(betNumber);
     }
 
-    useEffect(grabDeck, [addBet, betAmount, props])
+    useEffect(() => {
+        grabDeck()
+    }, [])
+
 
     console.log(props.user)
 
     const currentBet = isNaN(props.betAmount) ? 'Make a bet' : props.betAmount;
     return (
         <div>
-            < UserBet winner={winner} user={props.user} setUser={props.setUser} betAmount={betAmount} setBetCb={setBetCb} />
+            {/* < UserBet winner={winner} user={props.user} setUser={props.setUser} betAmount={betAmount} setBetCb={setBetCb} /> */}
             <div className="overoverall">
                 <div className="overall" style={{
                     backgroundImage: `url(${background})`,
@@ -120,9 +124,18 @@ function PlayGame(props) {
 
                 }}>
                     <div className="wordsblocktop">
-                        <span className="usertoptext">Welcome: Gamer</span><br />
-                        <span className="usertoptext">Bank: $130,000.00</span><br />
-                        <span className="usercurrentbet">CURRENT BET: {currentBet}</span><br />
+                        {props.user && (
+                            <>
+                                <span className="usertoptext">Welcome: {props.user.username}</span><br />
+                                <span className="usertoptext">Bank: {props.user.bank}</span><br />
+                                <span className="usercurrentbet">CURRENT BET: <input value={props.betAmount} type="number" onChange={e => {
+                                    let intVal = parseInt(e.target.value);
+                                    //if (isNaN(intVal)) intVal = 0
+                                    props.setBetCb(intVal)
+                                }
+                                } name="bet" className="bet-input"></input></span><br />
+                            </>
+                        )}
 
                     </div>
 
@@ -134,8 +147,12 @@ function PlayGame(props) {
                         <div style={{
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}>
-                            <img src={cardbacks} width="38%" alt="back of playing card" />
-                            <img src={kinfoghearts} width="38%" alt="front of playing card" />
+                            {playercard && (
+                                <>
+                                    <img src={playercard.image} width="38%" alt="back of playing card" />
+                                    <img src={compcard.image} width="38%" alt="front of playing card" />
+                                </>
+                            )}
                         </div>
 
                     </div>
@@ -145,7 +162,7 @@ function PlayGame(props) {
             </div>
         </div>
     )
-} 
+}
 
 
 export default PlayGame
