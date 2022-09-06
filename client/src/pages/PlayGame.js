@@ -108,7 +108,7 @@ function PlayGame(props) {
 
     console.log(props.user)
 
-    const currentBet = isNaN(props.betAmount) ? 'Select a bet amount!' : props.betAmount;
+    const currentBet = isNaN(props.betAmount) ? 'Make a bet' : props.betAmount;
     return (
         <div>
             < UserBet winner={winner} user={props.user} setUser={props.setUser} betAmount={betAmount} setBetCb={setBetCb} />

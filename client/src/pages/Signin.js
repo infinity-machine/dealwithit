@@ -2,6 +2,17 @@ import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 import { ADD_USER, LOGIN_USER } from '../utils/mutations';
+import signinpageImage from "./img/signinpagetop.png";
+import signinpagebttmImage from "./img/newbottom2.png";
+// import loginImage from "./img/login1.png";
+// import registerImage from "./img/register.png";
+
+import './css/style.css';
+
+// const register = registerImage;
+// const login = loginImage;
+const signinpagebg = signinpageImage;
+const signinpagebottom = signinpagebttmImage;
 
 function AuthForm(props) {
   const [formInput, setFormInput] = useState({
@@ -47,8 +58,12 @@ function AuthForm(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>{formInput.type[0].toUpperCase() + formInput.type.slice(1)}</h1>
+    <div>
+      <div className="overoverall" >
+        <div className="form-box" >
+        <img src={signinpagebg} width="390px" alt="graphic at top of signin box" />
+    <form onSubmit={handleSubmit} >
+      {/* <h1>{formInput.type[0].toUpperCase() + formInput.type.slice(1)}</h1> */}
       <input
         name="username"
         value={formInput.username}
@@ -67,18 +82,19 @@ function AuthForm(props) {
         onChange={handleInputChange}
         type="password"
         placeholder="Enter your password" />
-      <div className="type-wrap">
-        <label htmlFor="login">
-          Login
-          <input checked={formInput.type === 'login'} onChange={handleInputChange} name="type" id="login" type="radio" value="login" />
-        </label>
-        <label htmlFor="register">
-          Register
-          <input checked={formInput.type === 'register'} onChange={handleInputChange} name="type" id="register" type="radio" value="register" />
-        </label>
-      </div>
-      <button>Submit</button>
-    </form>
+        <div>
+            <label htmlFor="login">
+            <input checked={formInput.type === 'login'} onChange={handleInputChange} name="type" id="login" type="radio" value="login" className="box-shadow"/> <span className="loginlabel">Login</span></label>
+   
+            <label htmlFor="register">
+            <input checked={formInput.type === 'register'} onChange={handleInputChange} name="type" id="register" type="radio" value="register" className="box-shadow"/><span className="loginlabel">Register</span></label>
+        </div>
+            <button className="buttonsty" type = 'submit'>Click to submit</button>
+        </form>
+      <img src={signinpagebottom} width="390px" alt="graphic at bottom of signin box" />
+     </div>
+    </div>
+  </div>
   )
 }
 
@@ -87,7 +103,19 @@ export default AuthForm;
 
 
 
+<div className="overoverall">
+  <div className="overall"> 
+    <div className="wordsblocktop">
 
+
+    </div>
+    <div className="dealbutton" >
+
+
+
+    </div>
+  </div>
+</div>
 
 
 
