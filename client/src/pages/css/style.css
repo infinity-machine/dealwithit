@@ -5,40 +5,130 @@ HTML, body {
       background-color: black;
     }
 
-.overoverall {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .overoverall {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
 .overall {
-  width: 720px;
-  margin: 0 10% 0 10%;
+  width: 400px;
+  
 }
 
 .wordsblocktop{
-    margin: 20px 50px 20px 50px;
+    margin: 5px 10px 5px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .usertoptext {
-    font-family: Neuliner, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 80px;
-    line-height: 60px;
+    font-family: Neuliner, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+    line-height: 30px;
     color: #ff0000;
 }
 
 .usercurrentbet {
   font-family: Neuliner, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 60px;
+  font-size: 30px;
   color: #E48400;
+
 }
 
+.form-box {
+  font-family: Neuliner, 'Arial Narrow Bold', sans-serif;
+  font-size: 30px;
+  min-width: 390px;
+  border: solid #E48400 1vw;
+  /* border: 1px solid red; */
+  margin: 0vw;
+  /* padding: 1vw ; */
+
+  margin: 0 auto 
+
+}
+
+.form-box input, textarea{
+  display: grid;
+  width: 340px;
+  padding: .5rem .8rem .5rem .8rem;
+  margin: 10px;
+  border:0;
+  border-radius: 5px;
+  font-size: 20px;
+  background: #FFF7C4;
+ 
+}
+
+/* input[type="radio"] {
+  height: 1.2rem;
+  width: 1.2rem;
+  margin-right: 0.5rem;
+} */
+
+/* .custom-radio {
+  /* hiding browser el */
+  /* appearance: none; */
+  /* Safari support */
+  /* -webkit-appearance: none;
+  border: 0.2rem solid #fff;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+} */ */
+
+.box-shadow {
+  box-shadow: 0 0 0 1px var(--color);
+}
+
+.box-shadow:hover {
+  border-width: 0;
+}
+
+.box-shadow:checked {
+  box-shadow: 0 0 0 1px var(--checked-color);
+  background-color: var(--checked-color);
+  border-width: 0.2rem;
+}
+
+.form-box textarea{
+  height: 15vh;
+}
+
+/* .box {
+  white-space: nowrap;
+}
+.box label {
+  white-space: nowrap;
+} */
+
+/* input[type=text] {
+  padding:5px; 
+  border:2px solid #FFF7C4; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+} */
+
+.buttonsty:focus {
+  border-color: red;
+}
+
+.buttonsty {
+  padding:5px 15px; 
+  background:#FFF7C4; 
+  border: 0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+  width: 100%;
+
+}
+
+
 .dealbutton {
-  margin: 191px 50px 199px 50px;
+  margin: 100px 10px 104px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,4 +137,11 @@ HTML, body {
 .sprinningcardswrap {
   display: flex;
   align-items: center;
+}
+
+.loginlabel {
+  font-family: Neuliner, 'Arial Narrow Bold', sans-serif;
+  font-size: 30px;
+  color: #E48400;
+  
 }

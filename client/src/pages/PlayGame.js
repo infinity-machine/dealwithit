@@ -2,9 +2,10 @@ import React from "react";
 import { useEffect, useState } from "react"
 import UserBet from '../components/UserBet'
 import { useMutation, gql } from '@apollo/client'
-import backgroundImage from "./img/bgforphone2.png";
+import backgroundImage from "./img/bgforphone2b.png";
 import dealbuttonImage from "./img/dealbutton01.png";
 import cardbackImage from "./img/spinningcardbas1.png";
+import kingofheartsImage from "./img/KH.png";
 import transImage from "./img/transparent.png";
 import './css/style.css';
 // import { Header } from '../components/Header.js';
@@ -23,6 +24,7 @@ const ADD_BET = gql`
         }
     }`
 
+const kinfoghearts = kingofheartsImage;
 const cardbacks = cardbackImage;
 const background = backgroundImage;
 const dealbutton = dealbuttonImage;
@@ -36,6 +38,7 @@ function PlayGame(props) {
     const [compcard, setCompCard] = useState(null);
     const [winner, setWinnerCard] = useState('');
     const [betAmount, setBetAmount] = useState(0);
+    const [user_bet, setUserBet] = useState('');
 
     const [addBet, { loading, error, data }] = useMutation(ADD_BET);
 
@@ -72,13 +75,22 @@ function PlayGame(props) {
                 let compcard = convertCard(data.cards[1].value)
 
                 // Call server to update based on bet amt and win/loss
-                const userWon = playercard > compcard;
-                e.preventDefault()
 
-                addBet({ variables: { user_bet: betAmount, winner: userWon ? 'player' : 'comp' } }).then((response) => {
-                    props.storeToken(response.data.addBet.token)
-                    props.setUser(response.data.addBet.user);
-                })
+                // e.preventDefault()
+
+                const response = addBet()
+
+                props.storeToken(response.data.addBet.token)
+                props.setUser(response.data.addBet.user)
+                setUserBet('')
+
+                // const userWon = playercard > compcard;
+                // e.preventDefault()
+
+                // addBet({ variables: { user_bet: betAmount, winner: userWon ? 'player' : 'comp' } }).then((response) => {
+                //     props.storeToken(response.data.addBet.token)
+                //     props.setUser(response.data.addBet.user);
+                // })
 
                 if (playercard > compcard) {
                     setWinnerCard('player')
@@ -96,7 +108,7 @@ function PlayGame(props) {
 
     console.log(props.user)
 
-    const currentBet = isNaN(props.betAmount) ? 'Select a bet amount!' : props.betAmount;
+    const currentBet = isNaN(props.betAmount) ? 'Make a bet' : props.betAmount;
     return (
         <div>
             < UserBet winner={winner} user={props.user} setUser={props.setUser} betAmount={betAmount} setBetCb={setBetCb} />
@@ -108,9 +120,10 @@ function PlayGame(props) {
 
                 }}>
                     <div className="wordsblocktop">
-                        <span className="usertoptext">Welcome: {props.user.username}</span><br />
-                        <span className="usertoptext">Bank: </span><br />
-                        <span className="usercurrentbet">CURRENT BET: </span><br />
+                        <span className="usertoptext">Welcome: Gamer</span><br />
+                        <span className="usertoptext">Bank: $130,000.00</span><br />
+                        <span className="usercurrentbet">CURRENT BET: {currentBet}</span><br />
+
                     </div>
 
                     <div className="dealbutton" >
@@ -121,8 +134,8 @@ function PlayGame(props) {
                         <div style={{
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}>
-                            <img src={playercard.image} width="38%" alt="back of playing card" />
-                            <img src={compcard.image} width="38%" alt="back of playing card" />
+                            <img src={cardbacks} width="38%" alt="back of playing card" />
+                            <img src={kinfoghearts} width="38%" alt="front of playing card" />
                         </div>
 
                     </div>
@@ -132,7 +145,7 @@ function PlayGame(props) {
             </div>
         </div>
     )
-}
+} 
 
 
 export default PlayGame

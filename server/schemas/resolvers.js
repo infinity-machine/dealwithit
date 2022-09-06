@@ -48,7 +48,7 @@ const resolvers = {
 
     async loginUser(_, { email, password }, context) {
       const user = await User.findOne({ email });
-
+      console.log(email, password)
       if (!user) throw new ApolloError('No user found with that email address');
 
       if (!user.validatePass(password)) throw new ApolloError('Your password is incorrect');
