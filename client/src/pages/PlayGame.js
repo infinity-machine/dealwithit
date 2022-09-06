@@ -1,12 +1,8 @@
 import React from "react";
-<<<<<<< HEAD
-import backgroundImage from "./img/bgforphone2b.png";
-=======
 import { useEffect, useState } from "react"
 import UserBet from '../components/UserBet'
 import { useMutation, gql } from '@apollo/client'
-import backgroundImage from "./img/bgforphone2.png";
->>>>>>> 6000bb91bd5447a7a5b45f33150ea36ab329c8fa
+import backgroundImage from "./img/bgforphone2b.png";
 import dealbuttonImage from "./img/dealbutton01.png";
 import cardbackImage from "./img/spinningcardbas1.png";
 import transImage from "./img/transparent.png";
@@ -110,23 +106,11 @@ function PlayGame(props) {
                     backgroundRepeat: 'no-repeat',
                     //   backgroundPosition: 'center',
 
-<<<<<<< HEAD
-                <div className="dealbutton" >
-                    <img src={dealbutton} width="70%" alt="Button for dealing playing card for the game"/>
-                </div>
-
-                <div className="sprinningcardswrap">
-                    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                }}>
-                        <img src={cardbacks} width="38%" alt="back of playing card"/>
-                        <img src={cardbacks} width="38%" alt="back of playing card"/>
-=======
                 }}>
                     <div className="wordsblocktop">
                         <span className="usertoptext">Welcome: {props.user.username}</span><br />
                         <span className="usertoptext">Bank: </span><br />
                         <span className="usercurrentbet">CURRENT BET: </span><br />
->>>>>>> 6000bb91bd5447a7a5b45f33150ea36ab329c8fa
                     </div>
 
                     <div className="dealbutton" >
