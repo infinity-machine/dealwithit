@@ -76,7 +76,7 @@ function PlayGame(props) {
 
                 // Call server to update based on bet amt and win/loss
 
-                // e.preventDefault()
+                e.preventDefault()
 
                 const response = addBet()
 
@@ -145,7 +145,7 @@ function PlayGame(props) {
             </div>
         </div>
     )
-} 
+}
 
 
 export default PlayGame
