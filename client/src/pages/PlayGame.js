@@ -109,8 +109,14 @@ function PlayGame(props) {
                 }}>
                     <div className="wordsblocktop">
                         <span className="usertoptext">Welcome: {props.user.username}</span><br />
-                        <span className="usertoptext">Bank: </span><br />
-                        <span className="usercurrentbet">CURRENT BET: </span><br />
+                        <span className="usertoptext">Bank: {props.user.bank}</span><br />
+                        <span className="usercurrentbet">CURRENT BET: <input value={props.betAmount} type="number" onChange={e => {
+                            let intVal = parseInt(e.target.value);
+                            //if (isNaN(intVal)) intVal = 0
+                            props.setBetCb(intVal)
+                        }
+                        } name="bet" className="bet-input"></input></span><br />
+
                     </div>
 
                     <div className="dealbutton" >
