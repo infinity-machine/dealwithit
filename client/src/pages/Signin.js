@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ADD_USER, LOGIN_USER } from '../utils/mutations';
 import signinpageImage from "./img/signinpagetop.png";
 import signinpagebttmImage from "./img/newbottom2.png";
-import './fonts/Goldman/Goldman-Bold.ttf';
+import '../fonts/Neuliner Bold.otf';
 // import loginImage from "./img/login1.png";
 // import registerImage from "./img/register.png";
 

@@ -14,6 +14,6 @@ code {
 @font-face {
   font-family: "Neuliner Bold";
   src: local("Neuliner Bold"),
-   url("./fonts/Goldman/Neuliner Bold.otf") format("truetype");
+   url("../src/fonts/Neuliner Bold.otf") format("opentype");
   font-weight: bold;
   }
