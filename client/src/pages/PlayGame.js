@@ -40,23 +40,33 @@ const background = backgroundImage;
 const dealbutton = dealbuttonImage;
 const transpng = transImage;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 6ac5da95d517325f0f4e2505a03431eaf0d595bc
 function PlayGame(props) {
     const [playercard, setPlayerCard] = useState(null);
     const [compcard, setCompCard] = useState(null);
     const [winner, setWinnerCard] = useState('');
     const [betAmount, setBetAmount] = useState(0);
     const [user_bet, setUserBet] = useState('');
+<<<<<<< HEAD
     const navigate = useNavigate();
     const handleSubmit = () => {
         localStorage.removeItem('token');
         navigate('/')
     }
 
+=======
+    // const chaching = new Audio('shuffle01.mp3')
+>>>>>>> 6ac5da95d517325f0f4e2505a03431eaf0d595bc
 
     const [addBet, { loading, error, data }] = useMutation(ADD_BET);
 
 
     const grabDeck = (e) => {
+        
         fetch(`https://www.deckofcardsapi.com/api/deck/new/draw/?count=2`)
             .then((res) => res.json())
             .then(data => {
@@ -81,6 +91,7 @@ function PlayGame(props) {
                     }
                     card = parseInt(card)
                     console.log(card)
+                    // chaching.play()
                     return card
                 }
 
@@ -127,7 +138,6 @@ function PlayGame(props) {
     const currentBet = isNaN(props.betAmount) ? 'Make a bet' : props.betAmount;
     return (
         <div>
-
             <div className="overoverall">
                 <div className="overall" style={{
                     backgroundImage: `url(${background})`,

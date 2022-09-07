@@ -22,7 +22,7 @@ function App() {
   // const addUsername= ()=>{
   //   const  = Signin.getElementById('username-signin');
 
-
+console.log(localStorage)
   // }
 
   return (
