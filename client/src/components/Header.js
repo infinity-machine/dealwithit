@@ -1,13 +1,11 @@
 import { NavLink, Navigate, useNavigate } from 'react-router-dom'
 
-
-
 function Header(props) {
 
     const navigate = useNavigate()
 
     const handleSubmit = () => {
-        localStorage.removeItem('token')
+        localStorage.removeItem('token');
         navigate('/')
     }
 

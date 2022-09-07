@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink, Navigate, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import UserBet from '../components/UserBet'
 import { useMutation, gql } from '@apollo/client'
@@ -9,9 +10,15 @@ import kingofheartsImage from "./img/KH.png";
 import transImage from "./img/transparent.png";
 import { storeToken } from "../utils/auth"
 import '../fonts/Neuliner Bold.otf';
+import { Howl, Howler} from "howler";
 import './css/style.css';
+import flip from "./img/cardflip.gif";
+
 // import { Header } from '../components/Header.js';
 // const headerdata = Header;
+// const sfx = new Howl({
+//     src: ['../sound/shuffle01.mp3']
+//   });
 
 
 const ADD_BET = gql`
@@ -42,6 +49,12 @@ function PlayGame(props) {
     const [betAmount, setBetAmount] = useState(0);
     const [user_bet, setUserBet] = useState('');
     // const chaching = new Audio('shuffle01.mp3')
+
+    const navigate = useNavigate()
+    const handleSubmit = () => {
+        localStorage.removeItem('token');
+        navigate('/')
+    }
 
     const [addBet, { loading, error, data }] = useMutation(ADD_BET);
 
@@ -98,7 +111,7 @@ function PlayGame(props) {
                 })
 
                 if (playercard > compcard) {
-                    setWinnerCard('player')
+                    setWinnerCard('player');
                 } else setWinnerCard('comp')
 
             })
@@ -142,6 +155,7 @@ function PlayGame(props) {
 
                     </div>
 
+
                     <div className="dealbutton" >
                         <img onClick={grabDeck} disabled={isNaN(betAmount)} src={dealbutton} width="65%" alt="Button for dealing playing card for the game" />
                     </div>
@@ -155,12 +169,15 @@ function PlayGame(props) {
                                     <img src={playercard.image} width="38.5%" alt="back of playing card" />
                                     <img src={compcard.image} width="38.5%" alt="front of playing card" />
                                 </>
-                            )}
-                        </div>
+                            )};
 
+                        </div> 
+                        <img src={transpng} height="20px" alt="graphicspace" />
+                        <div className="form-box-winlose">
+                        {winner && (winner === 'player' ? <span className="winatbottom">Player Wins!</span> : <span className="winatbottom">Computer Wins!</span>)};
+                        {props.user ? <button onClick={handleSubmit} className="buttonsty">Logout</button> : <></>}
+                        </div>
                     </div>
-                    {winner && (winner === 'player' ? <h1>Player Wins!</h1> : <h1>Computer Wins!</h1>)}
-                    <img src={transpng} height="120px" alt="opening graphics" />
                 </div>
             </div>
         </div>
@@ -168,4 +185,4 @@ function PlayGame(props) {
 }
 
 
-export default PlayGame
+export default PlayGame 
