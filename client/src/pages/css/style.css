@@ -38,6 +38,12 @@ HTML, body {
 
 }
 
+.winatbottom {
+  font-family: Neuliner bold, 'Arial Narrow Bold', sans-serif;
+  font-size: 50px;
+  color: #E48400;
+}
+
 .form-box {
   font-family: Neuliner bold, 'Arial Narrow Bold', sans-serif;
   font-size: 30px;
@@ -75,9 +81,18 @@ HTML, body {
   /* border: 1px solid red; */
   margin-left: 2vw;
   margin: 0 auto;
-
 }
 
+.form-box-winlose {
+  font-family: Neuliner bold, 'Arial Narrow Bold', sans-serif;
+  font-size: 20px;
+  background: #FFF7C4;;
+  width: 250px;
+  border: solid #482504 .5vw;
+  padding: 10px;
+  margin: 0 auto;
+  
+}
 
 
 /* input[type="radio"] {
@@ -152,8 +167,9 @@ HTML, body {
 }
 
 .sprinningcardswrap {
-  display: flex;
+  display: inline-block;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .loginlabel {

@@ -27,7 +27,6 @@ function App() {
 
   return (
     <div className="App">
-      <Header user={user} />
       <Routes>
         <Route path="/" element={<Signin setUser={setUser} />} />
         <Route path='/playgame' element={< PlayGame user={user} setUser={setUser} />}></Route>
